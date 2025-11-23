@@ -1,19 +1,24 @@
-#include <cmath>
 #include <complex>
 #include <vector>
 
-using matrix = std::vector<std::vector<std::complex<double>>>;
+using Matrix = std::vector<std::vector<std::complex<double>>>;
 
 class Gate {
 public:
-  Gate(matrix m) : m_matrix{m} {}
+  Gate(Matrix m) : m_matrix{m} {}
 
-  const matrix &getMatrix() const;
+  const Matrix &getMatrix() const;
 
 private:
-  matrix m_matrix;
+  Matrix m_matrix;
 };
 
-extern const Gate X_GATE;
-extern const Gate H_GATE;
-extern const Gate Z_GATE;
+extern const Gate I_Gate;
+extern const Gate X_Gate;
+extern const Gate Y_Gate;
+extern const Gate Y_Gate;
+extern const Gate H_Gate;
+extern const Gate S_Gate;
+extern const Gate T_Gate;
+extern const Gate CX_Gate;
+extern const Gate CZ_Gate;

@@ -3,7 +3,6 @@
 
 // TODO:
 //
-// 1. Construct the SWAP Gate
 // 2. Contruct the overloads for std::operator* for (Gate,Gate), (Qubit, Gate)
 // 3. Test to see if simple operations are working
 // 4. See about how I want to overload std::operator<< for printing out qubit
@@ -41,5 +40,10 @@ const Gate CZ_Gate({{Const::One, Const::Zero, Const::Zero, Const::Zero},
                     {Const::Zero, Const::One, Const::Zero, Const::Zero},
                     {Const::Zero, Const::Zero, Const::One, Const::Zero},
                     {Const::Zero, Const::Zero, Const::One, -Const::One}});
+
+const Gate Swap_Gate({{Const::One, Const::Zero, Const::Zero, Const::Zero},
+                      {Const::Zero, Const::Zero, Const::One, Const::Zero},
+                      {Const::Zero, Const::One, Const::Zero, Const::Zero},
+                      {Const::Zero, Const::Zero, Const::Zero, Const::One}});
 
 const Matrix &Gate::getMatrix() const { return m_matrix; };

@@ -22,3 +22,4 @@ extern const Gate S_Gate;
 extern const Gate T_Gate;
 extern const Gate CX_Gate;
 extern const Gate CZ_Gate;
+extern const Gate Swap_Gate;

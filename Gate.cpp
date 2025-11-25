@@ -1,4 +1,5 @@
 #include "Gate.hpp"
+#include <cassert>
 #include <cmath>
 
 // TODO:
@@ -14,6 +15,27 @@ const std::complex<double> One(1.0, 0.0);
 const std::complex<double> I(0.0, 1.0);
 const std::complex<double> InvSqrt2(1.0 / std::sqrt(2.0), 0);
 } // namespace Const
+
+const Matrix &Gate::getMatrix() const { return m_matrix; };
+size_t Gate::getSize() const {
+    return m_matrix.size();
+}
+
+Gate operator*(const Gate &lhs, const Gate &rhs) {
+    assert(lhs.getSize() == rhs.getSize());
+    size_t size = lhs.getSize();
+    Matrix result(size, std::vector<std::complex<double>>(size));
+    for (size_t k = 0; k < size; k++) {
+        for (size_t i = 0; i < size; i++) {
+            std::complex<double> scalarSum{Const::Zero};
+            for (size_t j = 0; j < size; j++) {
+                scalarSum += lhs.getMatrix()[k][j] * rhs.getMatrix()[j][i];
+            }
+            result[k][i] = scalarSum;
+        }
+    }
+    return Gate(result);
+}
 
 const Gate I_Gate({{Const::One, Const::Zero}, {Const::Zero, Const::One}});
 
@@ -46,4 +68,3 @@ const Gate Swap_Gate({{Const::One, Const::Zero, Const::Zero, Const::Zero},
                       {Const::Zero, Const::One, Const::Zero, Const::Zero},
                       {Const::Zero, Const::Zero, Const::Zero, Const::One}});
 
-const Matrix &Gate::getMatrix() const { return m_matrix; };

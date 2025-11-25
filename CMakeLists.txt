@@ -9,5 +9,6 @@ add_executable(QuantumSim
   test.cpp
   Qubit.cpp
   Gate.cpp
+        QuantumRegister.hpp
 )
 

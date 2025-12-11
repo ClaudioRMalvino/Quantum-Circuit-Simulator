@@ -1,6 +1,9 @@
 # Build directory
 build/
 
+# Project manangement directory
+docs/
+
 # Compiled artifacts and build files
 *.so
 *.a

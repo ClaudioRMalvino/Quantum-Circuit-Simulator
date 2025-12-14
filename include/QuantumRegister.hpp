@@ -18,18 +18,16 @@ public:
     }
 
 // Needs to be able to get size of state vector
-int getSize() const;
+[[nodiscard]] size_t getSize() const;
 // Needs to be able to get the state vector
-const StateVector &getStateVector() const;
+[[nodiscard]] StateVector &getStateVector() const;
 // Needs to be able to get the number of qubits
-int getNumQubits() const;
+[[nodiscard]] int getNumQubits() const;
 
-// Needs to apply a gate on the Qubit. Now the question is how to we want to implement this.
-// Should this be mutable, as in does applying the gate change the object itself or returns a new qubit?
-// I feel that this will use up memory very quickly and get bloated very fast. It seems for performance it should
-// act on itself.
-void applyGate(const Gate &gate, int qubitIndex);
-void applyNotGate(const Gate &gate, int control, int target);
+// applyGate(Gate, size_t) has been completed, just need to be tested
+void applyGate(const Gate &gate, size_t qubitIndex);
+
+void applyGate(const Gate &gate, int control, int target);
 
 private:
 // Needs to be of size 2^N where N is numQubit

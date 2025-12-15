@@ -45,3 +45,7 @@ TEST_CASE("Hadamard on state vector produces superposition", "[hadamard]") {
     }
 }
 
+/** TODO: Need to run tests on operator*(Gate, Gate) to see if the overload is working as expected.
+ *  TODO: Need to also run a chain of applyGate(Gate, int) to see if I get the expected result.
+ *
+ */

@@ -20,7 +20,7 @@ public:
 // Needs to be able to get size of state vector
 [[nodiscard]] size_t getSize() const;
 // Needs to be able to get the state vector
-[[nodiscard]] StateVector &getStateVector() const;
+[[nodiscard]] StateVector &getStateVector();
 // Needs to be able to get the number of qubits
 [[nodiscard]] int getNumQubits() const;
 

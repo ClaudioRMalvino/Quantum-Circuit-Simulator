@@ -4,7 +4,7 @@
 size_t QuantumRegister::getSize() const {
     return m_state.size();
 }
-StateVector &QuantumRegister::getStateVector() const { return m_state; }
+StateVector &QuantumRegister::getStateVector() { return m_state; }
 
 int QuantumRegister::getNumQubits() const { return m_numQubits; }
 
@@ -30,7 +30,7 @@ void QuantumRegister::applyGate(const Gate &gate, size_t qubitIndex) {
             auto j = i ^ mask;
             std::complex<double> old0 = m_state[i];
             std::complex<double> old1 = m_state[j];
-            // Calculates the new amplitudes from a 2x2 gate operatior
+            // Calculates the new amplitudes from a 2x2 gate operator
             std::complex<double> new0 = gate00 * old0 + gate01 * old1;
             std::complex<double> new1 = gate10 * old0 + gate11 * old1;
 

@@ -45,6 +45,13 @@ TEST_CASE("Hadamard on state vector produces superposition", "[hadamard]") {
     }
 }
 
+TEST_CASE("Applying a chain Hadamard gate and then CNOT gate yields a Bell state", "[bellstate]") {
+    QuantumRegister qr(2);
+
+    qr.applyGate(CX_Gate, 1, 0).applyGate(H_Gate,1);
+
+}
+
 /** TODO: Need to run tests on operator*(Gate, Gate) to see if the overload is working as expected.
  *  TODO: Need to also run a chain of applyGate(Gate, int) to see if I get the expected result.
  *
